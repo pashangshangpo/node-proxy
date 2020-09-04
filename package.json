@@ -1,0 +1,19 @@
+{
+  "name": "node-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "pm2": "^4.4.1"
+  },
+  "devDependencies": {
+    "http-proxy": "^1.18.1"
+  },
+  "scripts": {
+    "start": "pm2 start index.js --name proxy",
+    "stop": "pm2 delete proxy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
