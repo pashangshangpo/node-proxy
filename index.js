@@ -16,6 +16,8 @@ const server = http.createServer({}, function(req, res) {
   res.writeHead = function(statusCode, headers) {
     res.setHeader('Access-Control-Allow-Credentials', true)
     res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*')
+    res.setHeader('Access-Control-Allow-Methods', '*')
+    res.setHeader('Access-Control-Allow-Headers', 'Authorization,Content-Type,Accept-Language,Content-Language,Accept,*')
 
     res.oldWriteHead(statusCode === 302 ? 200 : statusCode, headers)
   }
