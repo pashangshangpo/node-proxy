@@ -32,17 +32,21 @@ const server = http.createServer({}, function(req, res) {
     return
   }
 
-  proxy.web(req, res, {
-    target: url,
-    changeOrigin: true,
-    timeout: 1000 * 10,
-    proxyTimeout: 1000 * 10,
-    followRedirects: false,
-  }, () => {
-    res.end('')
-  })
+  try {
+    proxy.web(req, res, {
+      target: url,
+      changeOrigin: true,
+      timeout: 1000 * 10,
+      proxyTimeout: 1000 * 10,
+      followRedirects: false,
+    }, () => {
+      res.end('')
+    })
+  } catch (err) {
+    res.end('Hi...')
+  }
 })
 
 server.listen(9501, '0.0.0.0', () => {
-  console.log('http://localhost:9002')
+  console.log('http://localhost:9501')
 })
